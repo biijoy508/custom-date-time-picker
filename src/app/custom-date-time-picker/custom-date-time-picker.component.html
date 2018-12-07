@@ -1,0 +1,66 @@
+<!--Date section-->
+<div class="col-sm-7 no-right-padding no-left-padding" *ngIf="showCustomDate">
+    <div class="col-sm-4 no-left-padding no-right-padding">
+        <div class="decrementbutton">
+            <button type="button" id="dayDecreaseBtn" [disabled]="disableDayDecreaseBtn" (click)="decreaseDay()"><i class='shape4'><label>-</label></i></button>
+        </div>
+        <div class="datepickerinput">
+            <input type="text" class="form-control" placeholder="DD" name="dd" [(ngModel)]="fromSearchDay" maxlength="2" (focusout)="focusOutFunction()" [OnlyNumber]="true" pattern="[A-Za-z0-9]+" (keyup)="checkDay($event)" />
+        </div>
+        <div class="incrementbutton">
+            <button type="button" id="dayIncreaseBtn" (click)="increaseDay()"><i class='shape6'><label>+</label></i></button>
+        </div>
+    </div>
+    <div class="col-sm-4 no-left-padding no-right-padding">
+        <div class="decrementbutton">
+            <button type="button" id="monthDecreaseBtn" [disabled]="disableMonthDecreaseBtn" (click)="decreaseMonth()"><i class='shape4'><label>-</label></i></button>
+        </div>
+        <div class="datepickerinput">
+            <input type="text" maxlength="2" class="form-control" placeholder="MM" name="mm" [(ngModel)]="fromSearchMonth" (focusout)="focusOutFunction()" [OnlyNumber]="true" pattern="[A-Za-z0-9]+" (keyup)="checkMonth($event)" />
+        </div>
+        <div class="incrementbutton">
+            <button type="button" id="monthIncreaseBtn" (click)="increaseMonth()"><i class='shape6'><label>+</label></i></button>
+        </div>
+    </div>
+    <div class="col-sm-4 no-left-padding no-right-padding">
+        <div class="decrementbutton">
+            <button type="button" id="yearDecreaseBtn" [disabled]="disableYearDecreaseBtn" (click)="decreaseYear()"><i class='shape4'><label>-</label></i></button>
+        </div>
+        <div class="datepickerinput">
+            <input type="text" class="form-control" placeholder="YY" name="yy" [(ngModel)]="fromSearchYear" maxlength="4" (keyup)="checkYear($event)" [OnlyNumber]="true" />
+        </div>
+        <div class="incrementbutton">
+            <button type="button" id="yearIncreaseBtn" (click)="increaseYear()"><i class='shape6'><label>+</label></i></button>
+        </div>
+    </div>
+</div>
+<!--Time section-->
+<div class="col-sm-5 no-left-padding no-right-padding" *ngIf="showCustomTimePicker">
+    <div class="col-sm-6 no-left-padding no-right-padding">
+        <div class="decrementbutton">
+            <button type="button" [disabled]="disableHourDecreaseBtn" (click)="decreaseHour()"><i class='shape4'><label>-</label></i></button>
+        </div>
+        <div class="datepickerinput">
+            <input type="text" class="form-control" placeholder="HH" name="hh" [(ngModel)]="fromSearchHours" maxlength="2" (focusout)="focusOutFunction()" (keyup)="checkHour($event)" [OnlyNumber]="true" />
+        </div>
+        <div class="incrementbutton">
+            <button type="button" (click)="increaseHour()"><i class='shape6'><label>+</label></i></button>
+        </div>
+    </div>
+    <div class="col-sm-1 no-left-padding no-right-padding colonclass">
+        <label>:</label>
+    </div>
+    <div class="col-sm-5 no-left-padding no-right-padding">
+        <div class="decrementbutton">
+            <button type="button" [disabled]="disableMinDecreaseBtn" (click)="decreaseMinute()"><i class='shape4'><label>-</label></i></button>
+        </div>
+        <div class="datepickerinput">
+            <input type="text" class="form-control" placeholder="MM" name="min" [(ngModel)]="fromSearchMinutes" maxlength="2" (keyup)="checkMinute($event)" [OnlyNumber]="true" (focusout)="focusOutFunction()" />
+        </div>
+        <div class="incrementbutton">
+            <button type="button" (click)="increaseMinute()"><i class='shape6'><label>+</label></i></button>
+        </div>
+    </div>
+</div>
+<p class="validation-date-error">Please enter a valid date</p>
+<p class="validation-time-error">Please enter a valid time</p>
